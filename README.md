@@ -1,46 +1,61 @@
-# SimWaze Traffic Database System
+# Sistema de Base de Datos para Tráfico
 
-## Overview
+## Resumen General
 
-This workshop project presents the design and implementation of a high-performance, distributed database system for **SimWaze**, a traffic navigation platform inspired by Waze. The system is built to ingest and process massive real-time traffic data, support intelligent route suggestions, and provide insights to users, drivers, and administrators.
+Este proyecto presenta el diseño e implementación de un sistema distribuido de bases de datos de alto rendimiento, orientado a una plataforma de navegación de tráfico inspirada en Waze. El sistema está concebido para ingerir y procesar grandes volúmenes de datos en tiempo real, generar sugerencias de rutas inteligentes y ofrecer información útil tanto a usuarios individuales como a conductores y administradores.
 
-The platform must handle:
-- **137,957 road segments per city**
-- **Data updates every 2 minutes**
-- **Over 198 million records per day per city**
-- **Response times <140ms for 180M users**
+**Capacidades esperadas del sistema:**
 
-## Key Features
+- `137,957` segmentos viales por ciudad  
+- Actualizaciones cada `2 minutos`  
+- Más de `198 millones` de registros diarios por ciudad  
+- Tiempos de respuesta `<140ms` para hasta `180 millones` de usuarios
 
-- **Three-layer architecture**: 
-  - Real-time ingestion (MongoDB)
-  - Structured historical storage (PostgreSQL)
-  - Fast user-facing query service (Redis cache + optimized SQL)
+---
 
-- **User Stories Implemented**:
-  - Real-time traffic updates
-  - Route alternatives and congestion-based suggestions
-  - Public transport arrival estimates
-  - Eco-friendly routing and premium analytics
-  - Fleet tracking and administrative dashboards
+## Características Clave
 
-- **Modular System Components**:
-  - User & Session Management
-  - Route Search & Navigation
-  - Notifications & Alerts
-  - External Data Integration
-  - Transactions & Subscriptions
-  - Security & Audit Logging
+### Arquitectura de Tres Capas
 
-## Technologies Used
+- **MongoDB**: ingesta en tiempo real para almacenamiento inicial y eventos crudos.  
+- **PostgreSQL**: almacenamiento histórico estructurado para consultas analíticas.  
+- **Redis**: datamart de acceso rápido para consultas frecuentes y en tiempo real.
 
-- **MongoDB** – Staging area for raw external traffic data
-- **PostgreSQL** – Data warehouse for structured, optimized access
-- **Redis** – Fast-access datamart for frequent queries
-- **ETL Pipeline** – To transform and load data from NoSQL to SQL
+### Historias de Usuario Implementadas
 
-## Authors
+- Actualizaciones de tráfico en tiempo real  
+- Alternativas de ruta según congestión  
+- Estimación de llegada de transporte público  
+- Rutas ecológicas y analítica premium  
+- Rastreo de flotas y tableros de control administrativos
 
-- **Rubén Darío Fúquene Castiblanco** – `20192020004`  
-- **Thomas Felipe Sarmiento Oñate** – `20201020068`
+### Componentes Modulares del Sistema
 
+- Gestión de usuarios y sesiones  
+- Búsqueda de rutas y navegación  
+- Notificaciones y alertas  
+- Integración de fuentes de datos externas  
+- Transacciones y suscripciones  
+- Seguridad y registro de auditoría
+
+---
+
+## Tecnologías Utilizadas
+
+| Tecnología    | Rol                                                                 |
+|---------------|----------------------------------------------------------------------|
+| MongoDB       | Área de staging para datos sin estructurar                          |
+| PostgreSQL    | Almacén de datos para consultas analíticas estructuradas            |
+| Redis         | Datamart para respuestas rápidas y consultas frecuentes             |
+| ETL Pipeline  | Transformación y carga desde MongoDB hacia PostgreSQL               |
+
+---
+
+## Autor
+
+**Rubén Darío Fúquene Castiblanco**  
+`20192020004`  
+Estudiante de Ingeniería de Sistemas - Universidad Distrital Francisco José de Caldas  
+Enfoque en inteligencia artificial, ciencia de datos y diseño de arquitecturas distribuidas para aplicaciones urbanas.
+
+---
